@@ -1,20 +1,6 @@
 // SPDX-License-Identifier: MIT
 pragma solidity 0.8.18;
 
-/*
-       REQUIREMENTS
-    1. Your contract will have public variables that store the details about your coin (Token Name, Token Abbrv., Total Supply)
-    2. Your contract will have a mapping of addresses to balances (address => uint)
-    3. You will have a mint function that takes two parameters: an address and a value. 
-       The function then increases the total supply by that number and increases the balance 
-       of the “sender” address by that amount
-    4. Your contract will have a burn function, which works the opposite of the mint function, as it will destroy tokens. 
-       It will take an address and value just like the mint functions. It will then deduct the value from the total supply 
-       and from the balance of the “sender”.
-    5. Lastly, your burn function should have conditionals to make sure the balance of "sender" is greater than or equal 
-       to the amount that is supposed to be burned.
-*/
-
 contract MyToken {
 
     // public variables here
@@ -38,5 +24,36 @@ contract MyToken {
             balances[_address]-=_value;
         }
     }
+}
 
+contract Calculator{
+    function add(uint a,uint b)external pure returns(uint){
+        return a+b;
+    }
+    function sub(int a,int b)external pure returns(int){
+        return a-b;
+    }
+    function mult(uint a,uint b)external pure returns(uint){
+        return a*b;
+    }
+    function div(uint a,uint b)external pure returns(uint){
+        return a/b;
+    }
+}
+
+contract IfElse{
+    function example(uint _p) external pure returns(uint){
+        if(_p<10){
+            return 1;
+        }
+        else if(_p<20){
+            return 2;
+        }
+        else{
+            return 3;
+        }
+    }
+    function ternary(uint _p) external pure returns(uint){
+        return _p<10? 1: 2;
+    }
 }
